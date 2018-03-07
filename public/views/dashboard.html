@@ -1,0 +1,63 @@
+<header>        
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="navigation">
+                <div class="container">                 
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="index.html"><h1><span>B</span>ookopedia</h1></a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-collapse collapse">                          
+                        <div class="menu">
+                                <button style="margin-bottom: 10%" type="submit" class="btn btn-primary" ng-click=logout() >Logout</button>
+                                <button style="margin-bottom: 10%" type="submit" class="btn btn-primary" ng-click=favpage() >Fav Books</button>
+
+                        </div>
+                    </div>                      
+                </div>
+            </div>  
+        </nav>
+</header>
+
+<style type="text/css">
+body {
+    background-image: url("");background-color: #feb97f;
+}
+</style>
+<body >
+    <div >
+	<div style="position: center">
+    <form  ng-submit="getBooksFunction(inputValue)">     
+    <input style="width: 30%" type="text" class="form-control inputdefault " ng-model="inputValue" placeholder="Enter Book Name To Search" />
+    <button  type="submit" class="btn btn-primary" >Search</button>
+	</form>
+</div>
+
+<div  >
+<table style="width:100%">
+  <tr>
+    <th><h3 style="color: red"> Book Name </h3></th>
+    <th><h3 style="color: green"> Published On</h3></th> 
+    <th><h3 style="color: blue"> Author</h3></th>
+  </tr>
+  <div>
+  <tr ng-repeat="info in books.items" >
+    <div >
+    <td id="previewLink" ><a  href={{info.volumeInfo.previewLink}} target="_blank"><h5 id="bookname"  style="color:#69379e
+">{{info.volumeInfo.title}}</h5></a></td><br>
+    <td id="publishon" >{{info.volumeInfo.publishedDate}}</td><br>
+    <td id="author">{{info.volumeInfo.authors[0]}}</td><br>
+    <td><button  type="submit" ng-click='fav(info.id,info.volumeInfo.previewLink)'  class="btn btn-primary" >Add to fav.</button></td><br>
+</div>
+  </tr>
+
+</table></div>
+
+</body>

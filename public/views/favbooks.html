@@ -1,0 +1,54 @@
+<header>        
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="navigation">
+                <div class="container">                 
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="index.html"><h1><span>B</span>ookopedia</h1></a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-collapse collapse">                          
+                        <div class="menu">
+                                <button style="margin-bottom: 10%" type="submit" class="btn btn-primary" ng-click=logout() >Logout</button>
+                                
+
+                        </div>
+                    </div>                      
+                </div>
+            </div>  
+        </nav>
+</header>
+
+<style type="text/css">
+body {
+    background-image: url("");background-color: #feb97f;
+}
+</style>
+
+
+<body>
+
+<div ng-init='getfav()' >
+<table style="width:100%">
+  <tr>
+    <th><h3 style="color: red"> Book Name </h3></th>
+    <th><h3 style="color: green"> Published On</h3></th> 
+    <th><h3 style="color: blue"> Author</h3></th>
+  </tr>
+  <tr  ng-repeat="book in favbooks" >
+    <td ><a  href={{book.link}} target="_blank"><h5  style="color:#69379e">{{book.bookname}}</h5></a></td><br>
+    <td>{{book.publish}}</td><br>
+    <td>{{book.author}}</td><br>
+
+  </tr>
+
+</table></div>
+
+</body>
